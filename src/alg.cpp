@@ -17,6 +17,14 @@ double expn(double x, uint16_t count) {
   return count > 0 ? calcItem(x, count) + expn(x, count - 1) : 1;
 }
 
-double sinn(double x, uint16_t count) { return 0.0; }
+double sinn(double x, uint16_t count) {
+  return count > 1 ? sinn(x, count - 1) +
+                         (2 * (count & 1) - 1) * calcItem(x, 2 * count - 1)
+                   : x;
+}
 
-double cosn(double x, uint16_t count) { return 0.0; }
+double cosn(double x, uint16_t count) {
+  return count > 1 ? cosn(x, count - 1) +
+                         (2 * (count & 1) - 1) * calcItem(x, 2 * (count - 1))
+                   : 1;
+}
