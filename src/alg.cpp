@@ -9,7 +9,7 @@ double pown(double value, uint16_t n) {
   return ret;
 }
 
-uint64_t fact(uint16_t n) { return 0.0; }
+uint64_t fact(uint16_t n) { return n > 1 ? n * fact(n - 1) : 1; }
 
 double calcItem(double x, uint16_t n) { return 0.0; }
 
